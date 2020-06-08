@@ -2,10 +2,10 @@
     color: #eee;
     font-size: 30px;
 }
-
 .bg {
     background-color: #131e29;
 }
+
 
 .container {
     position: fixed;
@@ -21,14 +21,15 @@
 
     margin-left: 2px;
     margin-right: 3px;
+
     margin-top: 5px;
     margin-bottom: 5px;
 
     overflow: hidden;
 
     position: fixed;
-    left:0;
-    bottom:0;
+    left: 0;
+    bottom: 0;
     display: block;
 }
 
@@ -36,6 +37,7 @@
     width: 10%;
     background-color: #FC0349;
     height: 20px;
+
     position: absolute;
     left: 10%;
 }
