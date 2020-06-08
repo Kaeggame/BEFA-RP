@@ -11,8 +11,8 @@ Citizen.CreateThread(function()
         Citizen.Wait(1)
          if IsControlJustReleased(1, h_key) then
             print("The Key".. h_key .. "was pressed")
-            giveWeapon("WEAPON_PISTOL")
-            giveWeapon("WEAPON_KNIFE")
+            giveWeapon("weapon_pistol")
+            giveWeapon("weapon_knife")
             alert("~b~Give Weapons with ~INPUT_VEH_HEADLIGHT~")
          end
     end
