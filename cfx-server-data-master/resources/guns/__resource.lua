@@ -1,1 +1,4 @@
-   client_scripts {"functions.lua" ,"guns-c.lua", "weapons.lua"}
+client_scripts {
+    "guns-c.lua",
+    "functions.lua"
+} 
