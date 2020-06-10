@@ -1,37 +1,37 @@
 var tableauQuestion = [
 	{
-		question: "Si vous conduisez à 80km/h, que vous approchez d'un lieu de résidence, cela veut dire que :",
-		propositionA: "Vous devez accélérer",
-		propositionB: "Vous pouvez garder votre vitesse, si vous ne croisez pas d'autres véhicules",
-		propositionC: "Vous devez ralentir",
-		propositionD: "Vous pouvez garder votre vitesse",
+		question: "1. Je suis dans une rue limitée à 70 km/h. Quelle vitesse ne puis-je pas dépasser ?",
+		propositionA: "30 km/h",
+		propositionB: "70 km/h",
+		propositionC: "256 078 km/h",
+		propositionD: "La réponse D",
+		reponse: "B"
+	},
+
+	{
+		question: "2. La LSPD (Los Santos Police Departement) vous dit de vous ranger sur le bas côté. Que dois-je faire ?",
+		propositionA: "Je continue mon chemin",
+		propositionB: "Je décide d'accélérer afin de ne pas me faire arrêter",
+		propositionC: "Je me range sur le bas côté",
+		propositionD: "Je coupe par les champs et je roule jusqu'à ce que ma voiture soit complètement morte",
 		reponse: "C"
 	},
 
 	{
-		question: "Vous vous apprétez à tourner à droite au feu vert, mais vous voyez un piéton qui traverse :",
-		propositionA: "Vous passez avant le piéton",
-		propositionB: "Vous vérifiez qu'il n'y a pas d'autre véhicule et vous passez",
-		propositionC: "Vous attendez que le piéton est terminé",
-		propositionD: "Vous shoutez le piéton pour passer",
-		reponse: "C"
-	},
-
-	{
-		question: "Sans aucune indication : La vitesse dans une zone résidentielle est de : __ km/h",
-		propositionA: "50",
-		propositionB: "55",
-		propositionC: "65",
-		propositionD: "70",
+		question: "3. Un motard roule à toute allure et passe au feu rouge. Je le renverse en traversant le carrefour. Que fais-je ?",
+		propositionA: "Je m'arrête pour l'aider, s'il ne va pas bien je l'emmène à l'hopital",
+		propositionB: "Je m'arrête pour lui affirmer que j'étais en droit et je l'insulte",
+		propositionC: "Je continue ma route",
+		propositionD: "Je lui roule dessus pour lui montrer mon mécontentement",
 		reponse: "A"
 	},
 
 	{
-		question: "Avant chaque changement de file vous devez :",
-		propositionA: "Vérifiez vos rétroviseurs",
-		propositionB: "Vérifiez vos angles morts",
-		propositionC: "Signalez vos intentions",
-		propositionD: "Tout cela",
+		question: "4. Mes clignotans servent à :",
+		propositionA: "indiquer un changement de direction",
+		propositionB: "me mettre en 'warning' lorqu'ils fonctionnent simultanéments",
+		propositionC: "rien",
+		propositionD: "réponse A et B",
 		reponse: "D"
 	},
 
