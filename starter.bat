@@ -1,2 +1,2 @@
-cd /d C:\BEFA-RP\cfx-server-data-master
-C:\BEFA-RP\FXServer.exe +exec server.cfg
+cd /d C:\test\cfx-server-data-master
+C:\test\FXServer.exe +exec server.cfg
