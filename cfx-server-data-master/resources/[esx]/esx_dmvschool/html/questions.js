@@ -21,7 +21,7 @@ var tableauQuestion = [
 		question: "3. Un motard roule à toute allure et passe au feu rouge. Je le renverse en traversant le carrefour. Que fais-je ?",
 		propositionA: "Je m'arrête pour l'aider, s'il ne va pas bien je l'emmène à l'hopital",
 		propositionB: "Je m'arrête pour lui affirmer que j'étais en droit et je l'insulte",
-		propositionC: "Je continue ma route",
+		propositionC: "Je continue mon chemin",
 		propositionD: "Je lui roule dessus pour lui montrer mon mécontentement",
 		reponse: "A"
 	},
@@ -36,21 +36,21 @@ var tableauQuestion = [
 	},
 
 	{
-		question: "What blood alcohol level is classified as driving while intoxicated?",
-		propositionA: "0.05%",
-		propositionB: "0.18%",
-		propositionC: "0.08%",
-		propositionD: "0.06%",
-		reponse: "C"
+		question: "5. Quel est le taux d'alcool autorisé au volant en France ?",
+		propositionA: "0.5g",
+		propositionB: "0.50g",
+		propositionC: "0.500g",
+		propositionD: "Toutes ces réponses",
+		reponse: "D"
 	},
 
 	{
-		question: "A quel moment vous pouvez passer aux feux ?",
-		propositionA: "Quand il est vert",
-		propositionB: "Quand il n'y a personne sur l'intersection",
-		propositionC: "Vous êtes dans une zone d'école",
-		propositionD: "Quand il est vert et/ou rouge et que je tourne à droite",
-		reponse: "D"
+		question: "6. Une voiture me double sur l'autoroute. Comment dois-je réagir ?",
+		propositionA: "Je lui montre mon mécontentement en lui rentrant dans sa portière",
+		propositionB: "Je le laisse passer",
+		propositionC: "J'appelle la LSPD",
+		propositionD: "Je lui fais un doigt",
+		reponse: "B"
 	},
 
 	{
