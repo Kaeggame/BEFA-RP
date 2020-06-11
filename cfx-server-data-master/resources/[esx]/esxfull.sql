@@ -891,3 +891,8 @@ CREATE TABLE IF NOT EXISTS `whitelist` (
   `vip` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`identifier`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `items` (`name`, `label`, `limit`) VALUES  
+    ('phone', 'Phone', 1)
+;
+INSERT INTO shops (id, name, item, price) VALUES (98, 'TwentyFourSeven', 'phone', 175), (99, 'RobsLiquor', 'phone', 175), (100, 'LTDgasoline', 'phone', 175);
