@@ -54,38 +54,38 @@ var tableauQuestion = [
 	},
 
 	{
-		question: "Un piéton est au feu rouge pour les piétons",
-		propositionA: "Vous le laissez passer",
-		propositionB: "Vous observez avant de continuer",
-		propositionC: "Vous lui faite un signe de la main",
-		propositionD: "Vous continuez votre chemin car votre feu est vert",
-		reponse: "D"
+		question: "7. Quelle était la bonne réponse de la question 1 ? eheh",
+		propositionA: "La réponse A",
+		propositionB: "La réponse B",
+		propositionC: "La réponse C",
+		propositionD: "La réponse D",
+		reponse: "B"
 	},
 
 	{
-		question: "Qu'est ce qui est permit quand vous dépassez un autre véhicule",
-		propositionA: "Le suivre de près pour le doubler plus vite",
-		propositionB: "Le doubler en quittant la route",
-		propositionC: "Conduire sur la route opposé pour le dépasser",
-		propositionD: "Dépasser la vitesse limite",
+		question: "8. Ai-je le droit de rouler sur les rails de train ?",
+		propositionA: "Oui",
+		propositionB: "Seulement si je suis en course poursuite avec la LSPD",
+		propositionC: "Non",
+		propositionD: "Je ne sais pas",
 		reponse: "C"
 	},
 
 	{
-		question: "Vous conduisez sur une rocade qui indique une vitesse maximum de 110 km/h. La plupart du traffic roule à 120 km/h, alors vous ne devriez pas conduire plus vite que :",
-		propositionA: "80 kmh",
-		propositionB: "40 kmh",
-		propositionC: "50 kmh",
-		propositionD: "110 kmh",
-		reponse: "D"
+		question: "9. Après combien de temps suis-je censé faire une pause en voiture ?",
+		propositionA: "Toutes les 10 minutes",
+		propositionB: "Toutes les 2 heures",
+		propositionC: "Tous les 2 jours",
+		propositionD: "Tous les ans",
+		reponse: "B"
 	},
 
 	{
-		question: "Quand vous êtes dépassé par un autre véhicule il est important de ne PAS :",
-		propositionA: "Ralentir",
-		propositionB: "Vérifiez vos rétroviseurs",
-		propositionC: "Regarder les autres conducteurs",
-		propositionD: "Augmenter votre vitesse",
-		reponse: "D"
+		question: "10. Je vais faire des courses mais quand je me gare, je touche et j'abime la voiture à côté de moi. Que fais-je ?",
+		propositionA: "Je laisse un papier avec mon numéro sur le pare-brise pour prendre contact avec la victime",
+		propositionB: "Je gare ma voiture et je vais faire mes courses",
+		propositionC: "Je vais faires mes courses dans un autre magasin",
+		propositionD: "J'appelle une ambulance",
+		reponse: "A"
 	},
 ]
