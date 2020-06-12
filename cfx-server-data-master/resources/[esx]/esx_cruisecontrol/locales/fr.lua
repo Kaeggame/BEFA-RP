@@ -1,4 +1,4 @@
 Locales['fr'] = {
-  ['activated']   = 'activé',
-  ['deactivated'] = 'désactivé',
+  ['activated']   = 'Activé',
+  ['deactivated'] = 'Désactivé',
 }
