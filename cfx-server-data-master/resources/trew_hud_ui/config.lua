@@ -43,16 +43,16 @@ Config.vehicle = {
 }
 
 Config.ui = {
-	showServerLogo		= true,
+	showServerLogo		= false,
 
-	showJob		 		= true,
+	showJob		 		= false,
 
 	showWalletMoney 	= true,
 	showBankMoney 		= true,
 	showBlackMoney 		= true,
-	showSocietyMoney	= true,
+	showSocietyMoney	= false,
 
-	showDate 			= true,
+	showDate 			= false,
 	showLocation 		= true,
 	showVoice	 		= true,
 
@@ -62,7 +62,7 @@ Config.ui = {
 	showHunger 			= true,
 	showThirst	 		= true,
 
-	showMinimap			= false,
+	showMinimap			= true,
 
 	showWeapons			= true,	
 }
