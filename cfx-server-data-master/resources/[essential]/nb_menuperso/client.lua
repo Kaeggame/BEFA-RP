@@ -82,7 +82,6 @@ function OpenPersonnelMenu()
 		ESX.UI.Menu.Open(
 			'default', GetCurrentResourceName(), 'menu_perso',
 			{
-				css = 'perso',
 				title    = 'Menu Personnel',
 				align    = 'top-left',
 				elements = elements
@@ -161,7 +160,6 @@ function OpenPersonnelMenu()
 					ESX.UI.Menu.Open(
 						'default', GetCurrentResourceName(), 'menuperso_modo',
 						{
-							css = 'Modo',
 							title    = 'Modération',
 							align    = 'top-left',
 							elements = elements
