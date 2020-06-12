@@ -1,0 +1,15 @@
+Locales['en'] = {
+	["only_allow_car"]   = "Vous ne pouvez que parquer vos véhicules ici !",
+	["car_saved"]        = "Votre voiture à été parquée !",
+	["press_to_save"]    = "Appuyez sur ~INPUT_CONTEXT~ pour parquer votre véhicule",
+	["not_your_car"]     = "Ce n'est pas votre véhicule, vous ne pouvez pas le parquer !",
+	["need_parking_fee"] = "Appuyez sur ~INPUT_CONTEXT~ pour payer les frais de parking s'élevants à ~g~$%s~s~",
+	["not_enough_money"] = "Vous n'avez pas assez d'argent pour parquer votre véhicule !",
+	["parking_fee"]      = "Prix de parking : ~g~$%s/day",
+	["pay_success"]      = "Vous avez payer le frais de parking à ~g~$%s~s~ , vous pouvez dès à présent utiliser votre véhicule.",
+	["parking_full"]     = "Le parking est plein, vous ne pouvez pas parquer votre voiture ici !",
+	["invalid_car"]      = "Vous ne pouvez pas vous parquer ici car vous n\'avez pas la permission de conduire ce véhicule !",
+	["already_parking"]  = "Un véhicule possédant la même plaque d'immatriculation est déjà parqué",
+	["owner"]            = "Propriétaire : ~y~%s~s~",
+	["plate"]            = "Plaque d'immatriculation : ~g~%s~s~",
+}
