@@ -1,7 +1,7 @@
 Locales['fr'] = {
   -- Cloakroom
   ['cloakroom'] = 'Vestiaire',
-  ['citizen_wear'] = 'Tenue de civile',
+  ['citizen_wear'] = 'Tenue de civil',
   ['police_wear'] = 'Tenue de policier',
   ['gilet_wear'] = 'Gilet orange',
   ['bullet_wear'] = 'Gilet pare-balles',
