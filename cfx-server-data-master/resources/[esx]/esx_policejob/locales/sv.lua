@@ -20,7 +20,7 @@ Locales['sv'] = {
   ['armory_item'] = '%s SEK',
   ['armory_weapontitle'] = 'vapenförråd - Köp vapen',
   ['armory_componenttitle'] = 'vapenförråd - Vapen tillbehör',
-  ['armory_bought'] = 'du köpte ~y~%s~s~ för ~r~%s SEK~s~',
+  ['armory_bought'] = 'du köpte ~y~%s~s~ för ~g~%s SEK~s~',
   ['armory_money'] = 'du har inte råd med det vapnet',
   ['armory_hascomponent'] = 'du har redan det tillbehöret!',
   ['get_weapon_menu'] = 'vapenförråd - Ta ut vapen',
@@ -93,8 +93,6 @@ Locales['sv'] = {
   ['search_database'] = 'fordonsuppgifter',
   ['search_database_title'] = 'fordonsuppgifter - sök med registreringsnummer',
   ['search_database_error_invalid'] = 'det är ~r~inte~s~ ett ~y~giltigt~s~ registreringsnummer',
-  ['search_database_error_not_found'] = 'det ~y~registreringsnummeret~s~ är ~r~inte~s~ registrerat till något fordon!',
-  ['search_database_found'] = 'detta fordon är ~y~registrerat~s~ till ~b~%s~s~',
   -- Traffic interaction
   ['traffic_interaction'] = 'trafiksåtgärder',
   ['cone'] = 'kon',

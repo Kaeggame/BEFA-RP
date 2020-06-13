@@ -1,6 +1,6 @@
 local canHandsUp = true
-local GUI							= {}
-GUI.Time							= 0
+local GUI = {}
+GUI.Time = 0
 
 AddEventHandler("handsup:toggle", function(param)
 	canHandsUp = param
@@ -10,7 +10,7 @@ Citizen.CreateThread(function()
 	local handsup = false
 	while true do
 		Wait(0)
-		local lPed = GetPlayerPed(-1)
+		local lPed = PlayerPedId()
 		RequestAnimDict("random@mugging3")
 		if canHandsUp then
 			if (IsControlPressed(1, Config.handsUP.clavier) and (GetGameTimer() - GUI.Time) > 150) or ((IsControlPressed(2, Config.handsUP.manette1) and IsControlPressed(2, Config.handsUP.manette2)) and (GetGameTimer() - GUI.Time) > 150) then

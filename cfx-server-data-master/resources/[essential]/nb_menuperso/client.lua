@@ -1,42 +1,32 @@
-local Keys = {
-	["ESC"] = 322, ["F1"] = 288, ["F2"] = 289, ["F3"] = 170, ["F5"] = 166, ["F6"] = 167, ["F7"] = 168, ["F8"] = 169, ["F9"] = 56, ["F10"] = 57, 
-	["~"] = 243, ["1"] = 157, ["2"] = 158, ["3"] = 160, ["4"] = 164, ["5"] = 165, ["6"] = 159, ["7"] = 161, ["8"] = 162, ["9"] = 163, ["-"] = 84, ["="] = 83, ["BACKSPACE"] = 177, 
-	["TAB"] = 37, ["Q"] = 44, ["W"] = 32, ["E"] = 38, ["R"] = 45, ["T"] = 245, ["Y"] = 246, ["U"] = 303, ["P"] = 199, ["["] = 39, ["]"] = 40, ["ENTER"] = 18,
-	["CAPS"] = 137, ["A"] = 34, ["S"] = 8, ["D"] = 9, ["F"] = 23, ["G"] = 47, ["H"] = 74, ["K"] = 311, ["L"] = 182,
-	["LEFTSHIFT"] = 21, ["Z"] = 20, ["X"] = 73, ["C"] = 26, ["V"] = 0, ["B"] = 29, ["N"] = 249, ["M"] = 244, [","] = 82, ["."] = 81,
-	["LEFTCTRL"] = 36, ["LEFTALT"] = 19, ["SPACE"] = 22, ["RIGHTCTRL"] = 70, 
-	["HOME"] = 213, ["PAGEUP"] = 10, ["PAGEDOWN"] = 11, ["DELETE"] = 178,
-	["LEFT"] = 174, ["RIGHT"] = 175, ["TOP"] = 27, ["DOWN"] = 173,
-	["NENTER"] = 201, ["N4"] = 108, ["N5"] = 60, ["N6"] = 107, ["N+"] = 96, ["N-"] = 97, ["N7"] = 117, ["N8"] = 61, ["N9"] = 118
-}
-
 ESX = nil
-local GUI                       = {}
-GUI.Time                        = 0
-local PlayerData              = {}
+PlayerData = {}
 
-RegisterNetEvent('esx:playerLoaded')
-AddEventHandler('esx:playerLoaded', function(xPlayer)
-	PlayerData = xPlayer
+local GUI = {}
+GUI.Time = 0
+
+Citizen.CreateThread(function()
+	while ESX == nil do
+		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+		Citizen.Wait(0)
+	end
+
+	while ESX.GetPlayerData().job == nil do
+		Citizen.Wait(10)
+	end
+
+	PlayerData = ESX.GetPlayerData()
 end)
 
 RegisterNetEvent('esx:setJob')
 AddEventHandler('esx:setJob', function(job)
-  PlayerData.job = job
-end)
-
-Citizen.CreateThread(function()
-    while ESX == nil do
-        TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-        Citizen.Wait(0)
-    end
+	PlayerData.job = job
 end)
 
 --Notification joueur
 function Notify(text)
-    SetNotificationTextEntry('STRING')
-    AddTextComponentString(text)
-    DrawNotification(false, true)
+	SetNotificationTextEntry('STRING')
+	AddTextComponentString(text)
+	DrawNotification(false, true)
 end
 
 --Message text joueur
@@ -82,8 +72,8 @@ function OpenPersonnelMenu()
 		ESX.UI.Menu.Open(
 			'default', GetCurrentResourceName(), 'menu_perso',
 			{
-				title    = 'Menu Personnel',
-				align    = 'top-left',
+				title	= 'Menu Personnel',
+				align	= 'top-left',
 				elements = elements
 			},
 			function(data, menu)
@@ -91,8 +81,8 @@ function OpenPersonnelMenu()
 				local elements = {}
 				
 				if playergroup == 'mod' then
-					table.insert(elements, {label = 'TP sur joueur',    							value = 'menuperso_modo_tp_toplayer'})
-					table.insert(elements, {label = 'TP joueur sur moi',             			value = 'menuperso_modo_tp_playertome'})
+					table.insert(elements, {label = 'TP sur joueur',								value = 'menuperso_modo_tp_toplayer'})
+					table.insert(elements, {label = 'TP joueur sur moi',			 			value = 'menuperso_modo_tp_playertome'})
 					--table.insert(elements, {label = 'TP sur coordonées [WIP]',						value = 'menuperso_modo_tp_pos'})
 					--table.insert(elements, {label = 'NoClip',										value = 'menuperso_modo_no_clip'})
 					--table.insert(elements, {label = 'Mode invincible',									value = 'menuperso_modo_godmode'})
@@ -113,8 +103,8 @@ function OpenPersonnelMenu()
 				end
 			
 				if playergroup == 'admin' then
-					table.insert(elements, {label = 'TP sur joueur',    							value = 'menuperso_modo_tp_toplayer'})
-					table.insert(elements, {label = 'TP joueur sur moi',             			value = 'menuperso_modo_tp_playertome'})
+					table.insert(elements, {label = 'TP sur joueur',								value = 'menuperso_modo_tp_toplayer'})
+					table.insert(elements, {label = 'TP joueur sur moi',			 			value = 'menuperso_modo_tp_playertome'})
 					--table.insert(elements, {label = 'TP sur coordonées [WIP]',						value = 'menuperso_modo_tp_pos'})
 					table.insert(elements, {label = 'NoClip',										value = 'menuperso_modo_no_clip'})
 					table.insert(elements, {label = 'Mode invincible',									value = 'menuperso_modo_godmode'})
@@ -135,8 +125,8 @@ function OpenPersonnelMenu()
 				end
 			
 				if playergroup == 'superadmin' or playergroup == 'owner' then
-					table.insert(elements, {label = 'TP sur joueur',    							value = 'menuperso_modo_tp_toplayer'})
-					table.insert(elements, {label = 'TP joueur sur moi',             			value = 'menuperso_modo_tp_playertome'})
+					table.insert(elements, {label = 'TP sur joueur',								value = 'menuperso_modo_tp_toplayer'})
+					table.insert(elements, {label = 'TP joueur sur moi',			 			value = 'menuperso_modo_tp_playertome'})
 					table.insert(elements, {label = 'TP sur coordonées [WIP]',						value = 'menuperso_modo_tp_pos'})
 					table.insert(elements, {label = 'NoClip',										value = 'menuperso_modo_no_clip'})
 					table.insert(elements, {label = 'Mode invincible',									value = 'menuperso_modo_godmode'})
@@ -160,8 +150,8 @@ function OpenPersonnelMenu()
 					ESX.UI.Menu.Open(
 						'default', GetCurrentResourceName(), 'menuperso_modo',
 						{
-							title    = 'Modération',
-							align    = 'top-left',
+							title	= 'Modération',
+							align	= 'top-left',
 							elements = elements
 						},
 						function(data2, menu2)
@@ -253,16 +243,16 @@ function OpenPersonnelMenu()
 	
 					local elements = {}
 					
-					table.insert(elements, {label = 'Téléphone',    							value = 'menuperso_moi_telephone'})
-					table.insert(elements, {label = 'Inventaire',             					value = 'menuperso_moi_inventaire'})
+					table.insert(elements, {label = 'Téléphone',								value = 'menuperso_moi_telephone'})
+					table.insert(elements, {label = 'Inventaire',			 					value = 'menuperso_moi_inventaire'})
 					table.insert(elements, {label = 'Mes factures',							value = 'menuperso_moi_factures'})
 						
 					ESX.UI.Menu.Open(
 						
 						'default', GetCurrentResourceName(), 'menuperso_moi',
 						{
-							title    = 'Me concernant',
-							align    = 'top-left',
+							title	= 'Me concernant',
+							align	= 'top-left',
 							elements = elements
 						},
 						function(data2, menu2)
@@ -292,16 +282,16 @@ function OpenPersonnelMenu()
 					ESX.UI.Menu.Open(
 						'default', GetCurrentResourceName(), 'menuperso_actions',
 						{
-							title    = 'Actions',
-							align    = 'top-left',
+							title	= 'Actions',
+							align	= 'top-left',
 							elements = {
-								{label = 'Annuler l\'animation',  value = 'menuperso_actions__annuler'},
-								--{label = 'Faire ses besoins [WIP]',     value = 'menuperso_actions_pipi'},
-								{label = 'Animations de salutations',  value = 'menuperso_actions_Salute'},
-								{label = 'Animations  d\'humeurs',  value = 'menuperso_actions_Humor'},
-								{label = 'Animations de travail',  value = 'menuperso_actions_Travail'},
-								{label = 'Animations festives',  value = 'menuperso_actions_Festives'},
-								{label = 'Animations diverses',  value = 'menuperso_actions_Others'},
+								{label = 'Annuler l\'animation',	value = 'menuperso_actions__annuler'},
+								--{label = 'Faire ses besoins [WIP]',	 value = 'menuperso_actions_pipi'},
+								{label = 'Animations de salutations',	value = 'menuperso_actions_Salute'},
+								{label = 'Animations	d\'humeurs',	value = 'menuperso_actions_Humor'},
+								{label = 'Animations de travail',	value = 'menuperso_actions_Travail'},
+								{label = 'Animations festives',	value = 'menuperso_actions_Festives'},
+								{label = 'Animations diverses',	value = 'menuperso_actions_Others'},
 							},
 						},
 						function(data2, menu2)
@@ -321,13 +311,13 @@ function OpenPersonnelMenu()
 								ESX.UI.Menu.Open(
 									'default', GetCurrentResourceName(), 'menuperso_actions_Salute',
 									{
-										title    = 'Animations de salutations',
-										align    = 'top-left',
+										title	= 'Animations de salutations',
+										align	= 'top-left',
 										elements = {
-											{label = 'Saluer',  value = 'menuperso_actions_Salute_saluer'},
-											{label = 'Serrer la main',     value = 'menuperso_actions_Salute_serrerlamain'},
-											{label = 'Tape m\'en 5',     value = 'menuperso_actions_Salute_tapeen5'},
-											{label = 'Salut militaire',  value = 'menuperso_actions_Salute_salutmilitaire'},
+											{label = 'Saluer',	value = 'menuperso_actions_Salute_saluer'},
+											{label = 'Serrer la main',	 value = 'menuperso_actions_Salute_serrerlamain'},
+											{label = 'Tape m\'en 5',	 value = 'menuperso_actions_Salute_tapeen5'},
+											{label = 'Salut militaire',	value = 'menuperso_actions_Salute_salutmilitaire'},
 										},
 									},
 									function(data3, menu3)
@@ -359,18 +349,18 @@ function OpenPersonnelMenu()
 								ESX.UI.Menu.Open(
 									'default', GetCurrentResourceName(), 'menuperso_actions_Humor',
 									{
-										title    = 'Animations d\'humeurs',
-										align    = 'top-left',
+										title	= 'Animations d\'humeurs',
+										align	= 'top-left',
 										elements = {
-											{label = 'Féliciter',  value = 'menuperso_actions_Humor_feliciter'},
-											{label = 'Super',     value = 'menuperso_actions_Humor_super'},
-											{label = 'Calme-toi',     value = 'menuperso_actions_Humor_calmetoi'},
-											{label = 'Avoir peur',  value = 'menuperso_actions_Humor_avoirpeur'},
-											{label = 'C\'est pas possible !',  value = 'menuperso_actions_Humor_cestpaspossible'},
-											{label = 'Enlacer',  value = 'menuperso_actions_Humor_enlacer'},
-											{label = 'Doigt d\'honneur',  value = 'menuperso_actions_Humor_doightdhonneur'},
-											{label = 'Branleur',  value = 'menuperso_actions_Humor_branleur'},
-											{label = 'Balle dans la tête',  value = 'menuperso_actions_Humor_balledanslatete'},
+											{label = 'Féliciter',	value = 'menuperso_actions_Humor_feliciter'},
+											{label = 'Super',	 value = 'menuperso_actions_Humor_super'},
+											{label = 'Calme-toi',	 value = 'menuperso_actions_Humor_calmetoi'},
+											{label = 'Avoir peur',	value = 'menuperso_actions_Humor_avoirpeur'},
+											{label = 'C\'est pas possible !',	value = 'menuperso_actions_Humor_cestpaspossible'},
+											{label = 'Enlacer',	value = 'menuperso_actions_Humor_enlacer'},
+											{label = 'Doigt d\'honneur',	value = 'menuperso_actions_Humor_doightdhonneur'},
+											{label = 'Branleur',	value = 'menuperso_actions_Humor_branleur'},
+											{label = 'Balle dans la tête',	value = 'menuperso_actions_Humor_balledanslatete'},
 										},
 									},
 									function(data3, menu3)
@@ -422,14 +412,14 @@ function OpenPersonnelMenu()
 								ESX.UI.Menu.Open(
 									'default', GetCurrentResourceName(), 'menuperso_actions_Travail',
 									{
-										title    = 'Animations de travail',
-										align    = 'top-left',
+										title	= 'Animations de travail',
+										align	= 'top-left',
 										elements = {
-											{label = 'Pêcheur',  value = 'menuperso_actions_Travail_pecheur'},
-											{label = 'Agriculteur',     value = 'menuperso_actions_Travail_agriculteur'},
-											{label = 'Dépanneur',     value = 'menuperso_actions_Travail_depanneur'},
-											{label = 'Prendre des notes',  value = 'menuperso_actions_Travail_prendredesnotes'},
-											{label = 'Inspecter',  value = 'menuperso_actions_Travail_inspecter'},
+											{label = 'Pêcheur',	value = 'menuperso_actions_Travail_pecheur'},
+											{label = 'Agriculteur',	 value = 'menuperso_actions_Travail_agriculteur'},
+											{label = 'Dépanneur',	 value = 'menuperso_actions_Travail_depanneur'},
+											{label = 'Prendre des notes',	value = 'menuperso_actions_Travail_prendredesnotes'},
+											{label = 'Inspecter',	value = 'menuperso_actions_Travail_inspecter'},
 										},
 									},
 									function(data3, menu3)
@@ -465,13 +455,13 @@ function OpenPersonnelMenu()
 								ESX.UI.Menu.Open(
 									'default', GetCurrentResourceName(), 'menuperso_actions_Festives',
 									{
-										title    = 'Animations festives',
-										align    = 'top-left',
+										title	= 'Animations festives',
+										align	= 'top-left',
 										elements = {
-											{label = 'Danser',  value = 'menuperso_actions_Festives_danser'},
-											{label = 'Jouer de la musique',     value = 'menuperso_actions_Festives_jouerdelamusique'},
-											{label = 'Boire une bière',     value = 'menuperso_actions_Festives_boireunebiere'},
-											{label = 'Air Guitar',  value = 'menuperso_actions_Festives_airguitar'},
+											{label = 'Danser',	value = 'menuperso_actions_Festives_danser'},
+											{label = 'Jouer de la musique',	 value = 'menuperso_actions_Festives_jouerdelamusique'},
+											{label = 'Boire une bière',	 value = 'menuperso_actions_Festives_boireunebiere'},
+											{label = 'Air Guitar',	value = 'menuperso_actions_Festives_airguitar'},
 										},
 									},
 									function(data3, menu3)
@@ -503,26 +493,26 @@ function OpenPersonnelMenu()
 								ESX.UI.Menu.Open(
 									'default', GetCurrentResourceName(), 'menuperso_actions_Others',
 									{
-										title    = 'Animations diverses',
-										align    = 'top-left',
+										title	= 'Animations diverses',
+										align	= 'top-left',
 										elements = {
-											{label = 'Fumer une clope',     value = 'menuperso_actions_Others_fumeruneclope'},
-											{label = 'Faire des pompes',     value = 'menuperso_actions_Others_fairedespompes'},
-											{label = 'Regarder aux jumelles',     value = 'menuperso_actions_Others_regarderauxjumelles'},
-											{label = 'Faire du yoga',     value = 'menuperso_actions_Others_faireduyoga'},
-											{label = 'Faire la statue',     value = 'menuperso_actions_Others_fairelastatut'},
-											{label = 'Faire du jogging',     value = 'menuperso_actions_Others_fairedujogging'},
-											{label = 'Montrer ses muscles',     value = 'menuperso_actions_Others_fairedesetirements'},
-											{label = 'Racoller',     value = 'menuperso_actions_Others_racoller'},
-											{label = 'Racoller 2',     value = 'menuperso_actions_Others_racoller2'},
-											{label = 'S\'asseoir',     value = 'menuperso_actions_Others_sasseoir'},
-											{label = 'S\'asseoir (par terre)',     value = 'menuperso_actions_Others_sasseoirparterre'},
-											{label = 'Attendre',     value = 'menuperso_actions_Others_attendre'},
-											{label = 'Nettoyer quelque chose',     value = 'menuperso_actions_Others_nettoyerquelquechose'},
-											{label = 'Lever les mains',     value = 'menuperso_actions_Others_leverlesmains'},
-											{label = 'Position de fouille',     value = 'menuperso_actions_Others_positiondefouille'},
-											{label = 'Se gratter les couilles',     value = 'menuperso_actions_Others_segratterlesc'},
-											{label = 'Prendre un selfie',     value = 'menuperso_actions_Others_prendreunselfie'},
+											{label = 'Fumer une clope',	 value = 'menuperso_actions_Others_fumeruneclope'},
+											{label = 'Faire des pompes',	 value = 'menuperso_actions_Others_fairedespompes'},
+											{label = 'Regarder aux jumelles',	 value = 'menuperso_actions_Others_regarderauxjumelles'},
+											{label = 'Faire du yoga',	 value = 'menuperso_actions_Others_faireduyoga'},
+											{label = 'Faire la statue',	 value = 'menuperso_actions_Others_fairelastatut'},
+											{label = 'Faire du jogging',	 value = 'menuperso_actions_Others_fairedujogging'},
+											{label = 'Montrer ses muscles',	 value = 'menuperso_actions_Others_fairedesetirements'},
+											{label = 'Racoller',	 value = 'menuperso_actions_Others_racoller'},
+											{label = 'Racoller 2',	 value = 'menuperso_actions_Others_racoller2'},
+											{label = 'S\'asseoir',	 value = 'menuperso_actions_Others_sasseoir'},
+											{label = 'S\'asseoir (par terre)',	 value = 'menuperso_actions_Others_sasseoirparterre'},
+											{label = 'Attendre',	 value = 'menuperso_actions_Others_attendre'},
+											{label = 'Nettoyer quelque chose',	 value = 'menuperso_actions_Others_nettoyerquelquechose'},
+											{label = 'Lever les mains',	 value = 'menuperso_actions_Others_leverlesmains'},
+											{label = 'Position de fouille',	 value = 'menuperso_actions_Others_positiondefouille'},
+											{label = 'Se gratter les couilles',	 value = 'menuperso_actions_Others_segratterlesc'},
+											{label = 'Prendre un selfie',	 value = 'menuperso_actions_Others_prendreunselfie'},
 										},
 									},
 									function(data3, menu3)
@@ -615,13 +605,13 @@ function OpenPersonnelMenu()
 					ESX.UI.Menu.Open(
 						'default', GetCurrentResourceName(), 'menuperso_gpsrapide',
 						{
-							title    = 'GPS Rapide',
-							align    = 'top-left',
+							title	= 'GPS Rapide',
+							align	= 'top-left',
 							elements = {
-								{label = 'Pôle emploi',     value = 'menuperso_gpsrapide_poleemploi'},
-								{label = 'Comissariat principal',              value = 'menuperso_gpsrapide_comico'},
+								{label = 'Pôle emploi',	 value = 'menuperso_gpsrapide_poleemploi'},
+								{label = 'Comissariat principal',				value = 'menuperso_gpsrapide_comico'},
 								{label = 'Hôpital principal', value = 'menuperso_gpsrapide_hopital'},
-								{label = 'Concessionnaire',  value = 'menuperso_gpsrapide_concessionnaire'}
+								{label = 'Concessionnaire',	value = 'menuperso_gpsrapide_concessionnaire'}
 							},
 						},
 						function(data2, menu2)
@@ -667,22 +657,22 @@ function OpenPersonnelMenu()
 					ESX.UI.Menu.Open(
 						'default', GetCurrentResourceName(), 'menuperso_grade',
 						{
-							title    = 'Gestion d\'entreprise',
-							align    = 'top-left',
+							title	= 'Gestion d\'entreprise',
+							align	= 'top-left',
 							elements = {
-								{label = 'Recruter',     value = 'menuperso_grade_recruter'},
-								{label = 'Virer',              value = 'menuperso_grade_virer'},
+								{label = 'Recruter',	 value = 'menuperso_grade_recruter'},
+								{label = 'Virer',				value = 'menuperso_grade_virer'},
 								{label = 'Promouvoir', value = 'menuperso_grade_promouvoir'},
-								{label = 'Destituer',  value = 'menuperso_grade_destituer'}
+								{label = 'Destituer',	value = 'menuperso_grade_destituer'}
 							},
 						},
 						function(data2, menu2)
 
 							if data2.current.value == 'menuperso_grade_recruter' then
 								if PlayerData.job.grade_name == 'boss' then
-										local job =  PlayerData.job.name
-										local grade = 0
-										local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
+									local job =	PlayerData.job.name
+									local grade = 0
+									local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
 									if closestPlayer == -1 or closestDistance > 3.0 then
 										ESX.ShowNotification("Aucun joueur à proximité")
 									else
@@ -698,9 +688,9 @@ function OpenPersonnelMenu()
 
 							if data2.current.value == 'menuperso_grade_virer' then
 								if PlayerData.job.grade_name == 'boss' then
-										local job =  PlayerData.job.name
-										local grade = 0
-										local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
+									local job =	PlayerData.job.name
+									local grade = 0
+									local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
 									if closestPlayer == -1 or closestDistance > 3.0 then
 										ESX.ShowNotification("Aucun joueur à proximité")
 									else
@@ -717,7 +707,7 @@ function OpenPersonnelMenu()
 							if data2.current.value == 'menuperso_grade_promouvoir' then
 
 								if PlayerData.job.grade_name == 'boss' then
-										local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
+									local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
 									if closestPlayer == -1 or closestDistance > 3.0 then
 										ESX.ShowNotification("Aucun joueur à proximité")
 									else
@@ -735,7 +725,7 @@ function OpenPersonnelMenu()
 							if data2.current.value == 'menuperso_grade_destituer' then
 
 								if PlayerData.job.grade_name == 'boss' then
-										local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
+									local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
 									if closestPlayer == -1 or closestDistance > 3.0 then
 										ESX.ShowNotification("Aucun joueur à proximité")
 									else
@@ -839,9 +829,9 @@ function OpenVehiculeMenu()
 	ESX.UI.Menu.Open(
 		'default', GetCurrentResourceName(), 'menuperso_vehicule',
 		{
-			img    = 'menu_vehicule',
-			-- title    = 'Véhicule',
-			align    = 'top-left',
+			img	= 'menu_vehicule',
+			-- title	= 'Véhicule',
+			align	= 'top-left',
 			elements = elements
 		},
 		function(data, menu)
@@ -1093,7 +1083,7 @@ Citizen.CreateThread(function()
 			local _,_,x,y,z = string.find( pos or "0,0,0", "([%d%.]+),([%d%.]+),([%d%.]+)" )
 			
 			--SetEntityCoords(GetPlayerPed(-1), x, y, z)
-		    SetEntityCoords(GetPlayerPed(-1), x+0.0001, y+0.0001, z+0.0001) -- TP LE JOUEUR A LA POSITION
+			SetEntityCoords(GetPlayerPed(-1), x+0.0001, y+0.0001, z+0.0001) -- TP LE JOUEUR A LA POSITION
 			inputpos = 0
 		end
 	end
@@ -1105,114 +1095,114 @@ local noclip = false
 local noclip_speed = 1.0
 
 function admin_no_clip()
-  noclip = not noclip
-  local ped = GetPlayerPed(-1)
-  if noclip then -- activé
-    SetEntityInvincible(ped, true)
-    SetEntityVisible(ped, false, false)
+	noclip = not noclip
+	local ped = GetPlayerPed(-1)
+	if noclip then -- activé
+	SetEntityInvincible(ped, true)
+	SetEntityVisible(ped, false, false)
 	Notify("Noclip ~g~activé")
-  else -- désactivé
-    SetEntityInvincible(ped, false)
-    SetEntityVisible(ped, true, false)
+	else -- désactivé
+	SetEntityInvincible(ped, false)
+	SetEntityVisible(ped, true, false)
 	Notify("Noclip ~r~désactivé")
-  end
+	end
 end
 
 function getPosition()
-  local x,y,z = table.unpack(GetEntityCoords(GetPlayerPed(-1),true))
-  return x,y,z
+	local x,y,z = table.unpack(GetEntityCoords(GetPlayerPed(-1),true))
+	return x,y,z
 end
 
 function getCamDirection()
-  local heading = GetGameplayCamRelativeHeading()+GetEntityHeading(GetPlayerPed(-1))
-  local pitch = GetGameplayCamRelativePitch()
+	local heading = GetGameplayCamRelativeHeading()+GetEntityHeading(GetPlayerPed(-1))
+	local pitch = GetGameplayCamRelativePitch()
 
-  local x = -math.sin(heading*math.pi/180.0)
-  local y = math.cos(heading*math.pi/180.0)
-  local z = math.sin(pitch*math.pi/180.0)
+	local x = -math.sin(heading*math.pi/180.0)
+	local y = math.cos(heading*math.pi/180.0)
+	local z = math.sin(pitch*math.pi/180.0)
 
-  local len = math.sqrt(x*x+y*y+z*z)
-  if len ~= 0 then
-    x = x/len
-    y = y/len
-    z = z/len
-  end
+	local len = math.sqrt(x*x+y*y+z*z)
+	if len ~= 0 then
+	x = x/len
+	y = y/len
+	z = z/len
+	end
 
-  return x,y,z
+	return x,y,z
 end
 
 function isNoclip()
-  return noclip
+	return noclip
 end
 
 -- noclip/invisible
 Citizen.CreateThread(function()
-  while true do
-    Citizen.Wait(0)
-    if noclip then
-      local ped = GetPlayerPed(-1)
-      local x,y,z = getPosition()
-      local dx,dy,dz = getCamDirection()
-      local speed = noclip_speed
+	while true do
+	Citizen.Wait(0)
+	if noclip then
+		local ped = GetPlayerPed(-1)
+		local x,y,z = getPosition()
+		local dx,dy,dz = getCamDirection()
+		local speed = noclip_speed
 
-      -- reset du velocity
-      SetEntityVelocity(ped, 0.0001, 0.0001, 0.0001)
+		-- reset du velocity
+		SetEntityVelocity(ped, 0.0001, 0.0001, 0.0001)
 
-      -- aller vers le haut
-      if IsControlPressed(0,32) then -- MOVE UP
-        x = x+speed*dx
-        y = y+speed*dy
-        z = z+speed*dz
-      end
+		-- aller vers le haut
+		if IsControlPressed(0,32) then -- MOVE UP
+		x = x+speed*dx
+		y = y+speed*dy
+		z = z+speed*dz
+		end
 
-      -- aller vers le bas
-      if IsControlPressed(0,269) then -- MOVE DOWN
-        x = x-speed*dx
-        y = y-speed*dy
-        z = z-speed*dz
-      end
+		-- aller vers le bas
+		if IsControlPressed(0,269) then -- MOVE DOWN
+		x = x-speed*dx
+		y = y-speed*dy
+		z = z-speed*dz
+		end
 
-      SetEntityCoordsNoOffset(ped,x,y,z,true,true,true)
-    end
-  end
+		SetEntityCoordsNoOffset(ped,x,y,z,true,true,true)
+	end
+	end
 end)
 -- FIN NOCLIP
 
 -- GOD MODE
 function admin_godmode()
-  godmode = not godmode
-  local ped = GetPlayerPed(-1)
-  
-  if godmode then -- activé
+	godmode = not godmode
+	local ped = GetPlayerPed(-1)
+	
+	if godmode then -- activé
 		SetEntityInvincible(ped, true)
 		Notify("Mode invincible ~g~activé")
 	else
 		SetEntityInvincible(ped, false)
 		Notify("Mode invincible ~r~désactivé")
-  end
+	end
 end
 -- FIN GOD MODE
 
 -- INVISIBLE
 function admin_mode_fantome()
-  invisible = not invisible
-  local ped = GetPlayerPed(-1)
-  
-  if invisible then -- activé
+	invisible = not invisible
+	local ped = GetPlayerPed(-1)
+	
+	if invisible then -- activé
 		SetEntityVisible(ped, false, false)
 		Notify("Mode fantôme : activé")
 	else
 		SetEntityVisible(ped, true, false)
 		Notify("Mode fantôme : désactivé")
-  end
+	end
 end
 -- FIN INVISIBLE
 
 -- Réparer vehicule
 function admin_vehicle_repair()
 
-    local ped = GetPlayerPed(-1)
-    local car = GetVehiclePedIsUsing(ped)
+	local ped = GetPlayerPed(-1)
+	local car = GetVehiclePedIsUsing(ped)
 	
 		SetVehicleFixed(car)
 		SetVehicleDirtLevel(car, 0.0)
@@ -1250,7 +1240,7 @@ Citizen.CreateThread(function()
 					while not HasModelLoaded(car) do
 						Citizen.Wait(0)
 					end
-                    local x,y,z = table.unpack(GetEntityCoords(GetPlayerPed(-1),true))
+					local x,y,z = table.unpack(GetEntityCoords(GetPlayerPed(-1),true))
 					veh = CreateVehicle(car, x,y,z, 0.0, true, false)
 					SetEntityVelocity(veh, 2000)
 					SetVehicleOnGroundProperly(veh)
@@ -1258,11 +1248,11 @@ Citizen.CreateThread(function()
 					local id = NetworkGetNetworkIdFromEntity(veh)
 					SetNetworkIdCanMigrate(id, true)
 					SetVehRadioStation(veh, "OFF")
-					SetPedIntoVehicle(GetPlayerPed(-1),  veh,  -1)
+					SetPedIntoVehicle(GetPlayerPed(-1),	veh,	-1)
 					Notify("Véhicule livré, bonne route")
 				end)
 		
-        inputvehicle = 0
+		inputvehicle = 0
 		end
 	end
 end)
@@ -1271,14 +1261,14 @@ end)
 -- flipVehicle
 function admin_vehicle_flip()
 
-    local player = GetPlayerPed(-1)
-    posdepmenu = GetEntityCoords(player)
-    carTargetDep = GetClosestVehicle(posdepmenu['x'], posdepmenu['y'], posdepmenu['z'], 10.0,0,70)
+	local player = GetPlayerPed(-1)
+	posdepmenu = GetEntityCoords(player)
+	carTargetDep = GetClosestVehicle(posdepmenu['x'], posdepmenu['y'], posdepmenu['z'], 10.0,0,70)
 	if carTargetDep ~= nil then
 			platecarTargetDep = GetVehicleNumberPlateText(carTargetDep)
 	end
-    local playerCoords = GetEntityCoords(GetPlayerPed(-1))
-    playerCoords = playerCoords + vector3(0, 2, 0)
+	local playerCoords = GetEntityCoords(GetPlayerPed(-1))
+	playerCoords = playerCoords + vector3(0, 2, 0)
 	
 	SetEntityCoords(carTargetDep, playerCoords)
 	
@@ -1387,8 +1377,8 @@ function modo_showcoord()
 end
 
 Citizen.CreateThread(function()
-    while true do
-        Citizen.Wait(0)
+	while true do
+		Citizen.Wait(0)
 		
 		if showcoord then
 			local playerPos = GetEntityCoords(GetPlayerPed(-1))
@@ -1480,7 +1470,7 @@ Citizen.CreateThread(function()
 		local healply = GetOnscreenKeyboardResult()
 		TriggerServerEvent('esx_ambulancejob:revive', healply)
 		
-        inputheal = 0
+		inputheal = 0
 		end
 	end
 end)
@@ -1510,7 +1500,7 @@ Citizen.CreateThread(function()
 		
 		TriggerEvent('es_camera:spectate', source, target)
 		
-        inputspec = 0
+		inputspec = 0
 		end
 	end
 end)

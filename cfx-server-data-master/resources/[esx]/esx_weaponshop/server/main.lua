@@ -37,7 +37,7 @@ ESX.RegisterServerCallback('esx_weaponshop:buyLicense', function(source, cb)
 			cb(true)
 		end)
 	else
-		TriggerClientEvent('esx:showNotification', source, _U('not_enough'))
+		xPlayer.showNotification(_U('not_enough'))
 		cb(false)
 	end
 end)
@@ -49,36 +49,32 @@ ESX.RegisterServerCallback('esx_weaponshop:buyWeapon', function(source, cb, weap
 	if price == 0 then
 		print(('esx_weaponshop: %s attempted to buy a unknown weapon!'):format(xPlayer.identifier))
 		cb(false)
-	end
-
-	if xPlayer.hasWeapon(weaponName) then
-		TriggerClientEvent('esx:showNotification', source, _U('already_owned'))
-		cb(false)
 	else
-		if zone == 'BlackWeashop' then
-
-			if xPlayer.getAccount('black_money').money >= price then
-				xPlayer.removeAccountMoney('black_money', price)
-				xPlayer.addWeapon(weaponName, 42)
-
-				cb(true)
-			else
-				TriggerClientEvent('esx:showNotification', source, _U('not_enough_black'))
-				cb(false)
-			end
-
+		if xPlayer.hasWeapon(weaponName) then
+			xPlayer.showNotification(_U('already_owned'))
+			cb(false)
 		else
-
-			if xPlayer.getMoney() >= price then
-				xPlayer.removeMoney(price)
-				xPlayer.addWeapon(weaponName, 42)
-
-				cb(true)
-			else
-				TriggerClientEvent('esx:showNotification', source, _U('not_enough'))
-				cb(false)
-			end
+			if zone == 'BlackWeashop' then
+				if xPlayer.getAccount('black_money').money >= price then
+					xPlayer.removeAccountMoney('black_money', price)
+					xPlayer.addWeapon(weaponName, 42)
 	
+					cb(true)
+				else
+					xPlayer.showNotification(_U('not_enough_black'))
+					cb(false)
+				end
+			else
+				if xPlayer.getMoney() >= price then
+					xPlayer.removeMoney(price)
+					xPlayer.addWeapon(weaponName, 42)
+	
+					cb(true)
+				else
+					xPlayer.showNotification(_U('not_enough'))
+					cb(false)
+				end
+			end
 		end
 	end
 end)

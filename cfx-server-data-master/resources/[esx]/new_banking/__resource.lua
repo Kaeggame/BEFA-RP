@@ -1,11 +1,19 @@
-client_script('client/client.lua') --your NUI Lua File
-server_script "@mysql-async/lib/MySQL.lua"
-server_script 'server.lua'
-ui_page('client/html/UI.html') --THIS IS IMPORTENT
+client_script('client/client.lua')
 
---[[The following is for the files which are need for you UI (like, pictures, the HTML file, css and so on) ]]--
+server_scripts {
+    '@mysql-async/lib/MySQL.lua',
+    'server.lua'
+}
+
+-- Uncomment the desired version 
+ui_page('client/html/UI-fr.html') -- French UI
+--ui_page('client/html/UI-en.html') -- English UI
+--ui_page('client/html/UI-de.html') -- German UI
+
 files {
-	'client/html/UI.html',
+	'client/html/UI-fr.html', -- French UI
+	--'client/html/UI-en.html', -- English UI
+	--'client/html/UI-de.html', -- German UI
     'client/html/style.css',
     'client/html/media/font/Bariol_Regular.otf',
     'client/html/media/font/Vision-Black.otf',

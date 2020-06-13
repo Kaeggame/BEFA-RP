@@ -27,12 +27,12 @@ function ShowLoadingPromt(msg, time, type)
 	Citizen.CreateThread(function()
 		Citizen.Wait(0)
 
-		BeginTextCommandBusyString('STRING')
+		BeginTextCommandBusyspinnerOn('STRING')
 		AddTextComponentSubstringPlayerName(msg)
-		EndTextCommandBusyString(type)
+		EndTextCommandBusyspinnerOn(type)
 		Citizen.Wait(time)
 
-		RemoveLoadingPrompt()
+		BusyspinnerOff()
 	end)
 end
 
@@ -108,15 +108,13 @@ end
 function OpenCloakroom()
 	ESX.UI.Menu.CloseAll()
 
-	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'taxi_cloakroom',
-	{
+	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'taxi_cloakroom', {
 		title    = _U('cloakroom_menu'),
 		align    = 'top-left',
 		elements = {
-			{ label = _U('wear_citizen'), value = 'wear_citizen' },
-			{ label = _U('wear_work'),    value = 'wear_work'}
-		}
-	}, function(data, menu)
+			{label = _U('wear_citizen'), value = 'wear_citizen'},
+			{label = _U('wear_work'),    value = 'wear_work'}
+	}}, function(data, menu)
 		if data.current.value == 'wear_citizen' then
 			ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
 				TriggerEvent('skinchanger:loadSkin', skin)
@@ -155,8 +153,7 @@ function OpenVehicleSpawnerMenu()
 				})
 			end
 
-			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle_spawner',
-			{
+			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle_spawner', {
 				title    = _U('spawn_veh'),
 				align    = 'top-left',
 				elements = elements
@@ -176,7 +173,6 @@ function OpenVehicleSpawnerMenu()
 				end)
 
 				TriggerServerEvent('esx_society:removeVehicleFromGarage', 'taxi', vehicleProps)
-
 			end, function(data, menu)
 				CurrentAction     = 'vehicle_spawner'
 				CurrentActionMsg  = _U('spawner_prompt')
@@ -188,11 +184,10 @@ function OpenVehicleSpawnerMenu()
 
 	else -- not society vehicles
 
-		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle_spawner',
-		{
-			title		= _U('spawn_veh'),
-			align		= 'top-left',
-			elements	= Config.AuthorizedVehicles
+		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'vehicle_spawner', {
+			title    = _U('spawn_veh'),
+			align    = 'top-left',
+			elements = Config.AuthorizedVehicles
 		}, function(data, menu)
 			if not ESX.Game.IsSpawnPointClear(Config.Zones.VehicleSpawnPoint.Pos, 5.0) then
 				ESX.ShowNotification(_U('spawnpoint_blocked'))
@@ -397,19 +392,14 @@ end
 
 function OpenPutStocksMenu()
 	ESX.TriggerServerCallback('esx_taxijob:getPlayerInventory', function(inventory)
-
 		local elements = {}
 
-		for i=1, #inventory.items, 1 do
-			local item = inventory.items[i]
-
-			if item.count > 0 then
-				table.insert(elements, {
-					label = item.label .. ' x' .. item.count,
-					type = 'item_standard', -- not used
-					value = item.name
-				})
-			end
+		for k,v in ipairs(inventory) do
+			table.insert(elements, {
+				label = v.label .. ' x' .. v.count,
+				type = 'item_standard', -- not used
+				value = v.name
+			})
 		end
 
 		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'stocks_menu', {
@@ -444,14 +434,9 @@ function OpenPutStocksMenu()
 	end)
 end
 
-Citizen.CreateThread(function()
-	RegisterNetEvent('esx:playerLoaded')
-	AddEventHandler('esx:playerLoaded', function (xPlayer)
-		while ESX == nil do
-			Citizen.Wait(0)
-		end
-		ESX.PlayerData = xPlayer
-	end)
+RegisterNetEvent('esx:playerLoaded')
+AddEventHandler('esx:playerLoaded', function(xPlayer)
+	ESX.PlayerData = xPlayer
 end)
 
 RegisterNetEvent('esx:setJob')
@@ -757,6 +742,6 @@ AddEventHandler('esx:onPlayerDeath', function()
 	IsDead = true
 end)
 
-AddEventHandler('playerSpawned', function(spawn)
+AddEventHandler('esx:onPlayerSpawn', function(spawn)
 	IsDead = false
 end)

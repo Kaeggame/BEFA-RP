@@ -1,4 +1,6 @@
-local Keys = {
+Config = {}
+
+Keys = {
 	["ESC"] = 322, ["F1"] = 288, ["F2"] = 289, ["F3"] = 170, ["F5"] = 166, ["F6"] = 167, ["F7"] = 168, ["F8"] = 169, ["F9"] = 56, ["F10"] = 57, 
 	["~"] = 243, ["1"] = 157, ["2"] = 158, ["3"] = 160, ["4"] = 164, ["5"] = 165, ["6"] = 159, ["7"] = 161, ["8"] = 162, ["9"] = 163, ["-"] = 84, ["="] = 83, ["BACKSPACE"] = 177, 
 	["TAB"] = 37, ["Q"] = 44, ["W"] = 32, ["E"] = 38, ["R"] = 45, ["T"] = 245, ["Y"] = 246, ["U"] = 303, ["P"] = 199, ["["] = 39, ["]"] = 40, ["ENTER"] = 18,
@@ -9,68 +11,49 @@ local Keys = {
 	["LEFT"] = 174, ["RIGHT"] = 175, ["TOP"] = 27, ["DOWN"] = 173,
 	["NENTER"] = 201, ["N4"] = 108, ["N5"] = 60, ["N6"] = 107, ["N+"] = 96, ["N-"] = 97, ["N7"] = 117, ["N8"] = 61, ["N9"] = 118
 }
-Config								= {}
 
---------------------------------------------------------------------------------------------
--- Config
---------------------------------------------------------------------------------------------
 -- GENERAL
 Config.general = {
-	manettes = true,
+	manettes = true
 }
 -- GPS RAPIDE
-Config.poleemploi = {
-	x = -259.08557128906,
-	y = -974.677734375,
-	z = 31.220008850098,
-}
-Config.comico = {
-	x = 430.91763305664,
-	y = -980.24694824218,
-	z = 31.710563659668,
-}
-Config.hopital = {
-	x = 1150.1,
-	y = -1508.12,
-	z = 34.6926,
-}
-Config.concessionnaire = {
-	x = -44.385055541992,
-	y = -1109.7479248047,
-	z = 26.437595367432,
-}
+Config.poleemploi = {x = -259.0, y = -974.6, z = 31.2}
+Config.comico = {x = 430.9, y = -980.2, z = 31.7}
+Config.hopital = {x = 1150.1, y = -1508.1, z = 34.692}
+Config.concessionnaire = {x = -44.3, y = -1109.7, z = 26.4}
+
 -- Ouvrir le menu perso
 Config.menuperso = {
 	clavier = Keys["F5"],
 	manette1 = Keys["SPACE"],
-	manette2 = Keys["TOP"],
+	manette2 = Keys["TOP"]
 }
 -- Ouvrir le menu job
 Config.menujob = {
 	clavier = Keys["F6"],
 	manette1 = Keys["SPACE"],
-	manette2 = Keys["DOWN"],
+	manette2 = Keys["DOWN"]
 }
 -- TP sur le Marker
 Config.TPMarker = {
 	clavier1 = Keys["LEFTSHIFT"],
 	clavier2 = Keys["E"],
 	manette1 = Keys["LEFTSHIFT"],
-	manette2 = Keys["E"],
+	manette2 = Keys["E"]
 }
 -- Lever les mains
 Config.handsUP = {
 	clavier = Keys["~"],
 	manette1 = Keys["RIGHT"],
-	manette2 = Keys["F2"],
+	manette2 = Keys["F2"]
 }
 -- Pointer du doight
 Config.pointing = {
 	clavier = Keys["B"],
-	manette = Keys["B"],
+	manette = Keys["B"]
 }
 -- S'acroupir
 Config.crouch = {
 	clavier = Keys["LEFTCTRL"],
-	manette = Keys["LEFTCTRL"],
+	manette = Keys["LEFTCTRL"]
 }

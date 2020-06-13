@@ -5,10 +5,10 @@ html, body, p, button{
 body.active{
 	background-color: rgba(0,0,0,0.5);
 }
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 textarea:focus, input:focus{
     outline: none;
@@ -284,10 +284,10 @@ nav{
 	margin: 11px;
 }
 .social{
-	background-image: url(media/img/logo.png);
+	background-image: url(media/img/graph.png);
 	background-repeat: no-repeat;
-	background-position-y: 1px;
-    background-position-x: 230px;
+	background-position-y: 18px;
+    background-position-x: 10px;
 }
 .graph{
 	width: 275px;
@@ -297,11 +297,52 @@ nav{
 	margin-top: 15px;
 	margin-left: 16px;
 }
-
+.graph li{
+	width: 27px;
+	color: rgba(255,255,255,0.5);
+	text-align: center;
+}
+.graph .facebook{
+	background-color: #3b5999;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 30px;
+}
+.graph .google{
+	background-color: #dd4b39;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 50px;
+}
+.graph .rss{
+	background-color: #e6973b;
+    height: 29px;
+    line-height: 29px;
+    margin-top: 41px;
+}
+.graph .twitter{
+	background-color: #55acee;
+    height: 70px;
+    line-height: 70px;
+}
+.graph .insta{
+	background-color: #e4405f;
+    height: 55px;
+    line-height: 55px;
+    margin-top: 15px;
+}
+.social p{
+	position: absolute;
+	font-family: "vision-heavy",sans-serif;
+	font-size: 16px;
+	color: #181818;
+	text-transform: uppercase;
+	top: 16px;
+    left: 35px;
+}
 /*######################################################*/
-/* ###############     WITHDRAW MENU      ###############*/
+/* ###############     DEPOSER MENU      ###############*/
 /*######################################################*/
-
 .banniere{
 	width: 464px;
 	margin-right: 60px;
@@ -347,7 +388,7 @@ label{
 	width: 300px;
 }
 .double-input input{
-	font-size: 35px;
+	font-size: 35px; 
 }
 /*######################################################*/
 /* ###############        WAITING        ###############*/
