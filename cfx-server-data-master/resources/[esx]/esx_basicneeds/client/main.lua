@@ -29,7 +29,7 @@ AddEventHandler('esx:onPlayerDeath', function()
 	IsDead = true
 end)
 
-AddEventHandler('playerSpawned', function(spawn)
+AddEventHandler('esx:onPlayerSpawn', function(spawn)
 	if IsDead then
 		TriggerEvent('esx_basicneeds:resetStatus')
 	end
@@ -40,13 +40,13 @@ end)
 AddEventHandler('esx_status:loaded', function(status)
 
 	TriggerEvent('esx_status:registerStatus', 'hunger', 1000000, '#CFAD0F', function(status)
-		return false
+		return true
 	end, function(status)
 		status.remove(100)
 	end)
 
 	TriggerEvent('esx_status:registerStatus', 'thirst', 1000000, '#0C98F1', function(status)
-		return false
+		return true
 	end, function(status)
 		status.remove(75)
 	end)

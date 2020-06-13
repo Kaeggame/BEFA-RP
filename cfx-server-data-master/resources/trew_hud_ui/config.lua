@@ -36,23 +36,23 @@ Config.vehicle = {
 	keys = {
 		seatbelt 	= 'K',
 		cruiser		= 'CAPS',
-		signalLeft	= '1',
-		signalRight	= '3',
-		signalBoth	= '2',
+		signalLeft	= 'LEFT',
+		signalRight	= 'RIGHT',
+		signalBoth	= 'DOWN',
 	}
 }
 
 Config.ui = {
-	showServerLogo		= false,
+	showServerLogo		= true,
 
-	showJob		 		= false,
+	showJob		 		= true,
 
 	showWalletMoney 	= true,
 	showBankMoney 		= true,
 	showBlackMoney 		= true,
-	showSocietyMoney	= false,
+	showSocietyMoney	= true,
 
-	showDate 			= false,
+	showDate 			= true,
 	showLocation 		= true,
 	showVoice	 		= true,
 
@@ -62,7 +62,7 @@ Config.ui = {
 	showHunger 			= true,
 	showThirst	 		= true,
 
-	showMinimap			= true,
+	showMinimap			= false,
 
 	showWeapons			= true,	
 }

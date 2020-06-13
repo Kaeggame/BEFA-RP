@@ -694,14 +694,9 @@ AddEventHandler('esx_mechanicjob:onFixkit', function()
 	end
 end)
 
-Citizen.CreateThread(function()
-	RegisterNetEvent('esx:playerLoaded')
-	AddEventHandler('esx:playerLoaded', function (xPlayer)
-		while ESX == nil do
-			Citizen.Wait(0)
-		end
-		ESX.PlayerData = xPlayer
-	end)
+RegisterNetEvent('esx:playerLoaded')
+AddEventHandler('esx:playerLoaded', function(xPlayer)
+	ESX.PlayerData = xPlayer
 end)
 
 RegisterNetEvent('esx:setJob')
@@ -1005,6 +1000,6 @@ AddEventHandler('esx:onPlayerDeath', function(data)
 	isDead = true
 end)
 
-AddEventHandler('playerSpawned', function(spawn)
+AddEventHandler('esx:onPlayerSpawn', function(spawn)
 	isDead = false
 end)

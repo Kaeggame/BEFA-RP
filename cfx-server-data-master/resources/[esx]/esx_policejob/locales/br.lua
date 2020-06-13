@@ -48,7 +48,7 @@ Locales['br'] = {
   ['shop_item'] = '$%s',
   ['vehicleshop_title'] = 'vehicle Shop',
   ['vehicleshop_confirm'] = 'do you want to buy this vehicle?',
-  ['vehicleshop_bought'] = 'you have bought ~y~%s~s~ for ~r~$%s~s~',
+  ['vehicleshop_bought'] = 'you have bought ~y~%s~s~ for ~g~$%s~s~',
   ['vehicleshop_money'] = 'you cannot afford that vehicle',
   ['vehicleshop_awaiting_model'] = 'the vehicle is currently ~g~DOWNLOADING & LOADING~s~ please wait',
   ['confirm_no'] = 'no',
@@ -93,8 +93,6 @@ Locales['br'] = {
   ['search_database'] = 'informação do veículo',
   ['search_database_title'] = 'informações do veículo - pesquisa com número de registro',
   ['search_database_error_invalid'] = 'que ~r~não~s~ é um número de registro ~y~válido~s~',
-  ['search_database_error_not_found'] = 'esse número de ~y~registror~s~ ~r~não~s~ está registrado em um veículo!',
-  ['search_database_found'] = 'o veículo está ~y~registrado~s~ para ~b~%s~s~',
   -- Traffic interaction
   ['traffic_interaction'] = 'Interagir com as rodovias',
   ['cone'] = 'Cones',
