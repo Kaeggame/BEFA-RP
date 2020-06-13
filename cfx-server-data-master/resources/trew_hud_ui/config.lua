@@ -1,6 +1,6 @@
 Config = {}
 
-Config.Locale = 'br'
+Config.Locale = 'en'
 
 Config.serverLogo = 'https://i.imgur.com/AcgDL9f.png'
 
@@ -31,7 +31,7 @@ Config.voice = {
 
 Config.vehicle = {
 	speedUnit = 'KMH',
-	maxSpeed = 240,
+	maxSpeed = 270,
 
 	keys = {
 		seatbelt 	= 'K',
@@ -43,7 +43,7 @@ Config.vehicle = {
 }
 
 Config.ui = {
-	showServerLogo		= true,
+	showServerLogo		= false,
 
 	showJob		 		= true,
 
@@ -62,7 +62,7 @@ Config.ui = {
 	showHunger 			= true,
 	showThirst	 		= true,
 
-	showMinimap			= false,
+	showMinimap			= true,
 
 	showWeapons			= true,	
 }
