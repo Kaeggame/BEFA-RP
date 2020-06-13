@@ -6,7 +6,7 @@ Config = {}
 
 Config.UsingOldESX = true      -- If you are using ESX 1.2.0 or higher please leave this to false
 
-Config.Locale = 'en' -- locale
+Config.Locale = 'fr' -- locale
 
 Config.ParkingLocations = {
 	parking1 = {
