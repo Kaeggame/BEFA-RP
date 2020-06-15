@@ -1,4 +1,4 @@
-Locales['fr'] = {
+Locales['en'] = {
 	["only_allow_car"]   = "Vous ne pouvez que parquer vos véhicules ici !",
 	["car_saved"]        = "Votre voiture à été parquée !",
 	["press_to_save"]    = "Appuyez sur ~INPUT_CONTEXT~ pour parquer votre véhicule",
