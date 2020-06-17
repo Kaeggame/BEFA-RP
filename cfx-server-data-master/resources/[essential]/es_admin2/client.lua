@@ -8,7 +8,7 @@ Citizen.CreateThread(function()
 		Citizen.Wait(0)
 		
 		if (IsControlJustPressed(1, 212) and IsControlJustPressed(1, 213)) then
-			if group ~= "user" then
+			if true then
 				SetNuiFocus(true, true)
 				SendNUIMessage({type = 'open', players = getPlayers()})
 			end
@@ -236,9 +236,11 @@ AddEventHandler("es_admin:noclip", function(t)
 end)
 
 function getPlayers()
-    local players = {}
-    for _, player in ipairs(GetActivePlayers()) do
-        table.insert(players, {id = GetPlayerServerId(player), name = GetPlayerName(player)})
-    end
-    return players
+	local players = {}
+	for i = 0,32 do
+		if NetworkIsPlayerActive(i) then
+			table.insert(players, {id = GetPlayerServerId(i), name = GetPlayerName(i)})
+		end
+	end
+	return players
 end

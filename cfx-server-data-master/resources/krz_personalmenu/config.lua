@@ -26,7 +26,6 @@ Config.Controls = {
 	OpenMenu = {keyboard = Keys['F5']},
 	HandsUP = {keyboard = Keys['~']},
 	Pointing = {keyboard = Keys['B']},
-	Crouch = {keyboard = Keys['LEFTCTRL']},
 	StopTasks = {keyboard = Keys['X']},
 	TPMarker = {keyboard1 = Keys['LEFTALT'], keyboard2 = Keys['E']}
 }

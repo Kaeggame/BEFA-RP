@@ -410,7 +410,7 @@ Citizen.CreateThread(function()
 			--DisableControlAction(0, Keys["F2"], active) -- F2 - 289
 			--DisableControlAction(0, Keys["F3"], active) -- F3 - 170
 			--DisableControlAction(0, Keys["F4"], active) -- F4 - NON IDENTIFIER
-			--DisableControlAction(0, Keys["F5"], active) -- F5 - 166
+			DisableControlAction(0, Keys["F5"], active) -- F5 - 166
 			--DisableControlAction(0, Keys["F6"], active) -- F6 - 167
 			--DisableControlAction(0, Keys["F7"], active) -- F7 - 168
 			--DisableControlAction(0, Keys["F8"], active) -- F8 - 169
