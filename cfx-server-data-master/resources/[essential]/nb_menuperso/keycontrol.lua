@@ -32,20 +32,7 @@ Citizen.CreateThread(function()
 --------------------------------------------------------------------------------------------
 -- Menu personnel -> nb_menuperso
 --------------------------------------------------------------------------------------------
-		
-		if (IsControlPressed(1, Config.menuperso.clavier) and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'menu_perso') and (GetGameTimer() - GUI.Time) > 150) then
-			TriggerEvent('NB:closeAllSubMenu')
-			TriggerEvent('NB:closeAllMenu')
-			TriggerEvent('NB:openMenuPersonnel')
-			GUI.Time  = GetGameTimer()
-		end
-		
-		if (IsControlPressed(1, Config.menuperso.clavier) and ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'menu_perso') and (GetGameTimer() - GUI.Time) > 150) then
-			TriggerEvent('NB:closeAllSubMenu')
-			TriggerEvent('NB:closeAllMenu')
-			GUI.Time  = GetGameTimer()
-		end
-		
+
 --------------------------------------- MANETTE
 		
 		if Config.general.manettes then
