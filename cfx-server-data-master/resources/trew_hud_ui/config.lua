@@ -53,7 +53,9 @@ Config.ui = {
 	showSocietyMoney	= true,
 
 	showDate 			= false,
+
 	showLocation 		= false,
+
 	showVoice	 		= true,
 
 	showHealth			= true,
