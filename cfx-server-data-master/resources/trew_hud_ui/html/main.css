@@ -169,7 +169,7 @@ div.separator { display: block; clear: both; width: 100%; }
 .info.radio { bottom: 19px; right: 25px; z-index: 11; }
 .info.radio #voice { width: 35px; height: 35px; border-radius: 50%; overflow: hidden; background: linear-gradient(180deg, #18b70b 0%, #128c08 100%); text-align: center; padding: 7px 0 0 0; transition: all 0.1s linear; }
 
-.info.radio #voice.whisper { background: linear-gradient(180deg, #ffb700 0%, #e0a102 100%); }
+.info.radio #voice.whisper { background: linear-gradient(180deg, #007cff 0%, #007cff 100%); }
 .info.radio #voice.normal { background: linear-gradient(180deg, #18b70b 0%, #128c08 100%); }
 .info.radio #voice.shout { background: linear-gradient(180deg, #ff0000 0%, #aa0000 100%); }
 .info.radio #voice i.fas { font-size: 18px; color: #FFF; }
@@ -183,9 +183,9 @@ div.separator { display: block; clear: both; width: 100%; }
 
 
 @keyframes trew-siren {
-    0% { border-color: rgba(255,0,0,0); box-shadow: 0 0 10px 10px rgba(255,0,0,0); }
+    0% { border-color: rgba(0,127,255,0.70); box-shadow: 0 0 10px 10px rgba(255,0,0,0); }
     50% { border-color: rgba(255,0,0,1); box-shadow: 0 0 10px 10px rgba(255,0,0,0.50); }
-    100% { border-color: rgba(255,0,0,0); box-shadow: 0 0 10px 10px rgba(255,0,0,0); }
+    100% { border-color: rgba(0,127,255,0.70); box-shadow: 0 0 10px 10px rgba(255,0,0,0); }
 }
 
 @keyframes trew-soundwave {
