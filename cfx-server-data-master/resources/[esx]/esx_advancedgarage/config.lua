@@ -4,8 +4,8 @@ Config.Locale = 'en'
 Config.MenuAlign = 'top-left'
 Config.DrawDistance = 100
 
-Config.UseCommand = false -- Will allow players to do /getproperties instead of having to log out & back in to see Private Garages.
-Config.ParkVehicles = false -- true = Automatically Park all Vehicles in Garage on Server/Script Restart | false = Opposite of true but players will have to go to Pound to get their Vehicle Back.
+Config.UseCommand = true -- Will allow players to do /getproperties instead of having to log out & back in to see Private Garages.
+Config.ParkVehicles = false -- true = Automatically Park all Vehicles in Garage on Server/ Script Restart | false = Opposite of true but players will have to go to Pound to get their Vehicle Back.
 Config.KickPossibleCheaters = true -- true = Kick Player that tries to Cheat Garage by changing Vehicle Hash/Plate.
 Config.UseCustomKickMessage = false -- true = Sets Custom Kick Message for those that try to Cheat. Note: "Config.KickPossibleCheaters" must be true.
 
@@ -27,10 +27,10 @@ Config.JPoundBlip = {Sprite = 67, Color = 49, Display = 2, Scale = 1.0} -- Job P
 Config.PoundWait = 5 -- How many Minutes someone must wait before Opening Pound Menu Again.
 Config.JPoundWait = 2.5 -- How many Minutes someone must wait before Opening Job Pound Menu Again.
 
-Config.UseDamageMult = false -- true = Costs more to Store a Broken/Damaged Vehicle.
+Config.UseDamageMult = true -- true = Costs more to Store a Broken/Damaged Vehicle.
 Config.DamageMult = 5 -- Higher Number = Higher Repair Price.
 
-Config.UsingAdvancedVehicleShop = false -- Set to true if using esx_advancedvehicleshop
+Config.UsingAdvancedVehicleShop = true -- Set to true if using esx_advancedvehicleshop
 
 Config.UseAmbulanceGarages = false -- true = Allows use of Ambulance Garages.
 Config.UseAmbulancePounds = false -- true = Allows use of Ambulance Pounds.
@@ -42,19 +42,19 @@ Config.UsePolicePounds = false -- true = Allows use of Police Pounds.
 Config.UsePoliceBlips = false -- true = Use Police Blips.
 Config.PolicePoundPrice = 80 -- How much it Costs to get Vehicle from Police Pound.
 
-Config.UseAircraftGarages = false -- true = Allows use of Aircraft Garages.
-Config.UseAircraftBlips = false -- true = Use Aircraft Blips.
+Config.UseAircraftGarages = true -- true = Allows use of Aircraft Garages.
+Config.UseAircraftBlips = true -- true = Use Aircraft Blips.
 Config.AircraftPoundPrice = 2500 -- How much it Costs to get Vehicle from Aircraft Pound.
 
-Config.UseBoatGarages = false -- true = Allows use of Boat Garages.
-Config.UseBoatBlips = false -- true = Use Boat Blips.
+Config.UseBoatGarages = true -- true = Allows use of Boat Garages.
+Config.UseBoatBlips = true -- true = Use Boat Blips.
 Config.BoatPoundPrice = 500 -- How much it Costs to get Vehicle from Boat Pound.
 
-Config.UseCarGarages = false -- true = Allows use of Car Garages.
-Config.UseCarBlips = false -- true = Use Car Blips.
+Config.UseCarGarages = true -- true = Allows use of Car Garages.
+Config.UseCarBlips = true -- true = Use Car Blips.
 Config.CarPoundPrice = 300 -- How much it Costs to get Vehicle from Car Pound.
 
-Config.UsePrivateCarGarages = false -- true = Allows use of Private Car Garages.
+Config.UsePrivateCarGarages = true -- true = Allows use of Private Car Garages.
 
 -- Marker = Enter Location | Spawner = Spawn Location | Spawner2 = Job Aircraft Spawn Location | Deleter = Delete Location
 -- Deleter2 = Job Aircraft Delete Location | Heading = Spawn Heading | Heading2 = Job Aircraft Spawn Heading

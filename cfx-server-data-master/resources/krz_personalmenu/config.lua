@@ -46,7 +46,7 @@ Config.GPS = {
 
 -- VOICE --
 Config.Voice = {
-	activated = true,
+	activated = false,
 	defaultLevel = 8.0
 }
 
