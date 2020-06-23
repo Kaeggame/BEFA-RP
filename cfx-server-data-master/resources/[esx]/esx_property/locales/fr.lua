@@ -34,5 +34,5 @@ Locales['fr'] = {
   ['paid_rent_evicted'] = 'Vous avez été ~o~expulsé~s~ de ~y~%s~s~ pour ne pas avoir payé votre loyé de ~g~$%s~s~',
   ['not_enough_in_property'] = 'Il n\'a pas assez de ~r~cet objet~s~ dans votre coffre!',
   ['player_cannot_hold'] = 'Vous n\'avez pas assez ~y~de place~s~ dans votre inventaire!',
-  ['leave'] = 'Vendre',
+  ['leave'] = 'Vendre pour ~g~$%s~s~',
 }
